@@ -31,7 +31,7 @@ export class SwipeBackControlWeb extends WebPlugin implements SwipeBackControlPl
     await this.enableSwipeBack({ enabled: false, currentPage });
   }
 
-  private handlePopState(event: PopStateEvent): void {
+  private handlePopState(): void {
     const currentPage = window.location.pathname;
 
     if (this.disabledPages.has(currentPage)) {

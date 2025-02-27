@@ -13,24 +13,36 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+* [`enableSwipeBack(...)`](#enableswipeback)
+* [`disableSwipeBack()`](#disableswipeback)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
+### enableSwipeBack(...)
 
 ```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
+enableSwipeBack(options: { enabled: boolean; currentPage: string; }) => Promise<void>
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
+Enable or disable swipe back gesture for the current page
 
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+| Param         | Type                                                    | Description                                  |
+| ------------- | ------------------------------------------------------- | -------------------------------------------- |
+| **`options`** | <code>{ enabled: boolean; currentPage: string; }</code> | Configuration options for swipe back control |
+
+--------------------
+
+
+### disableSwipeBack()
+
+```typescript
+disableSwipeBack() => Promise<void>
+```
+
+Disable swipe back gesture for the current page
 
 --------------------
 

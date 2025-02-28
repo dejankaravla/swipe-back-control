@@ -7,36 +7,54 @@ export class SwipeBackControlWeb extends WebPlugin implements SwipeBackControlPl
 
   constructor() {
     super();
-    // Listen for back navigation attempts
-    window.addEventListener('popstate', this.handlePopState.bind(this));
+    try {
+      // Listen for back navigation attempts
+      window.addEventListener('popstate', this.handlePopState.bind(this));
+    } catch (error) {
+      console.error('Failed to initialize SwipeBackControl:', error);
+    }
   }
 
   async enableSwipeBack(options: { enabled: boolean; currentPage: string }): Promise<void> {
-    const { enabled, currentPage } = options;
+    try {
+      const { enabled, currentPage } = options;
 
-    if (enabled) {
-      this.disabledPages.delete(currentPage);
-    } else {
-      this.disabledPages.add(currentPage);
-    }
+      if (enabled) {
+        this.disabledPages.delete(currentPage);
+      } else {
+        this.disabledPages.add(currentPage);
+      }
 
-    // Update navigation state if needed
-    if (!enabled) {
-      history.pushState(null, document.title, location.href);
+      // Update navigation state if needed
+      if (!enabled) {
+        history.pushState(null, document.title, location.href);
+      }
+    } catch (error) {
+      console.error('Failed to enable/disable swipe back:', error);
+      throw error;
     }
   }
 
   async disableSwipeBack(): Promise<void> {
-    const currentPage = window.location.pathname;
-    await this.enableSwipeBack({ enabled: false, currentPage });
+    try {
+      const currentPage = window.location.pathname;
+      await this.enableSwipeBack({ enabled: false, currentPage });
+    } catch (error) {
+      console.error('Failed to disable swipe back:', error);
+      throw error;
+    }
   }
 
   private handlePopState(): void {
-    const currentPage = window.location.pathname;
+    try {
+      const currentPage = window.location.pathname;
 
-    if (this.disabledPages.has(currentPage)) {
-      // Prevent back navigation by pushing a new state
-      history.pushState(null, document.title, location.href);
+      if (this.disabledPages.has(currentPage)) {
+        // Prevent back navigation by pushing a new state
+        history.pushState(null, document.title, location.href);
+      }
+    } catch (error) {
+      console.error('Error handling pop state:', error);
     }
   }
 

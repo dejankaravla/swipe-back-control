@@ -1,6 +1,6 @@
 {
   "name": "swipe-back-control",
-  "version": "0.0.2",
+  "version": "0.0.7",
   "description": "Capacitor plugin to enable or disable the swipe back gesture on iOS devices for specific pages.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -10,9 +10,7 @@
     "android/src/main/",
     "android/build.gradle",
     "dist/",
-    "ios/Plugin/",
-    "ios/Sources",
-    "ios/Tests",
+    "ios/Plugin/**/*",
     "Package.swift",
     "SwipeBackControl.podspec"
   ],
@@ -20,10 +18,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dejankaravla/swipebackcontrol.git"
+    "url": "git+https://github.com/dejankaravla/swipe-back-control.git"
   },
   "bugs": {
-    "url": "https://github.com/dejankaravla/swipebackcontrol/issues"
+    "url": "https://github.com/dejankaravla/swipe-back-control/issues"
   },
   "keywords": [
     "capacitor",

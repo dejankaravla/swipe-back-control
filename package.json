@@ -1,6 +1,6 @@
 {
   "name": "swipe-back-control",
-  "version": "0.0.8",
+  "version": "0.0.13",
   "description": "Capacitor plugin to enable or disable the swipe back gesture on iOS devices for specific pages.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
